@@ -4,116 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch A Sketch</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script>
             const main = document.querySelector('body');
+            const btn = document.createElement('button');
+            btn.textContent = "REZISE DIMENSIONS";
+            main.appendChild(btn);
+            btn.addEventListener('click', () => {
+                let num = parseInt(prompt('Dimensions: '));
+
+                let rows = document.querySelectorAll('.rows');
+                rows.forEach((row) => {
+                    row.remove();
+                });
+
+                for (let i = 0; i < num; i++) {
+                let rows = document.createElement('div');
+                rows.classList.add('rows');
+                grid.appendChild(rows);
+                for (let k=0; k<num; k++) {
+                    let cols = document.createElement('div');
+                    cols.classList.add('cols');
+                    rows.appendChild(cols);
+                }
+
+                let boxes = document.querySelectorAll('.cols');
+                boxes.forEach((box) => {
+                    let r = Math.floor(Math.random()*252);
+                    let g = Math.floor(Math.random()*252);
+                    let b = Math.floor(Math.random()*252);
+                    box.addEventListener('mouseover', () => {
+                        box.setAttribute('style', 'background-color:rgb('+r+', '+g+', '+b+')');
+                    })
+                });
+            };
+            });
             const grid = document.createElement('div');
             grid.classList.add('grid');
             main.appendChild(grid);
 
-            const row1 = document.createElement('div');
-            row1.classList.add('row1');
-            grid.appendChild(row1);
-            const box1 = document.createElement('div');
-            box1.classList.add('row01');
-            box1.classList.add('col01');
-            box1.classList.add('box');
-            row1.appendChild(box1);
-            const box2 = document.createElement('div');
-            box2.classList.add('row01');
-            box2.classList.add('col02');
-            box2.classList.add('box');
-            row1.appendChild(box2);
-            const box3 = document.createElement('div');
-            box3.classList.add('row01');
-            box3.classList.add('col03');
-            box3.classList.add('box');
-            row1.appendChild(box3);
-            const box4 = document.createElement('div');
-            box4.classList.add('row01');
-            box4.classList.add('col04');
-            box4.classList.add('box');
-            row1.appendChild(box4);
+            for (let i = 0; i < 16; i++) {
+                let rows = document.createElement('div');
+                rows.classList.add('rows');
+                grid.appendChild(rows);
+                for (let k=0; k<16; k++) {
+                    let cols = document.createElement('div');
+                    cols.classList.add('cols');
+                    rows.appendChild(cols);
+                }
+            };
 
-            const row2 = document.createElement('div');
-            row2.classList.add('row2');
-            grid.appendChild(row2);
-            const box5 = document.createElement('div');
-            box5.classList.add('row02');
-            box5.classList.add('col01');
-            box5.classList.add('box');
-            row2.appendChild(box5);
-            const box6 = document.createElement('div');
-            box6.classList.add('row02');
-            box6.classList.add('col02');
-            box6.classList.add('box');
-            row2.appendChild(box6);
-            const box7 = document.createElement('div');
-            box7.classList.add('row02');
-            box7.classList.add('col03');
-            box7.classList.add('box');
-            row2.appendChild(box7);
-            const box8 = document.createElement('div');
-            box8.classList.add('row02');
-            box8.classList.add('col04');
-            box8.classList.add('box');
-            row2.appendChild(box8);
-
-            const row3 = document.createElement('div');
-            row3.classList.add('row3');
-            grid.appendChild(row3);
-            const box9 = document.createElement('div');
-            box9.classList.add('row03');
-            box9.classList.add('col01');
-            box9.classList.add('box');
-            row3.appendChild(box9);
-            const box10 = document.createElement('div');
-            box10.classList.add('row03');
-            box10.classList.add('col02');
-            box10.classList.add('box');
-            row3.appendChild(box10);
-            const box11 = document.createElement('div');
-            box11.classList.add('row03');
-            box11.classList.add('col03');
-            box11.classList.add('box');
-            row3.appendChild(box11);
-            const box12 = document.createElement('div');
-            box12.classList.add('row03');
-            box12.classList.add('col04');
-            box12.classList.add('box');
-            row3.appendChild(box12);
-
-            const row4 = document.createElement('div');
-            row4.classList.add('row4');
-            grid.appendChild(row4);
-            const box13 = document.createElement('div');
-            box13.classList.add('row04');
-            box13.classList.add('col01');
-            box13.classList.add('box');
-            row4.appendChild(box13);
-            const box14 = document.createElement('div');
-            box14.classList.add('row04');
-            box14.classList.add('col02');
-            box14.classList.add('box');
-            row4.appendChild(box14);
-            const box15 = document.createElement('div');
-            box15.classList.add('row04');
-            box15.classList.add('col03');
-            box15.classList.add('box');
-            row4.appendChild(box15);
-            const box16 = document.createElement('div');
-            box16.classList.add('row04');
-            box16.classList.add('col04');
-            box16.classList.add('box');
-            row4.appendChild(box16);
-
-            const boxes = document.querySelectorAll('.box');
+            let boxes = document.querySelectorAll('.cols');
             boxes.forEach((box) => {
+                let r = Math.floor(Math.random()*252);
+                let g = Math.floor(Math.random()*252);
+                let b = Math.floor(Math.random()*252);
                 box.addEventListener('mouseover', () => {
-                    box.setAttribute('style', 'background-color:black');
+                    box.setAttribute('style', 'background-color:rgb('+r+', '+g+', '+b+')');
                 })
             });
     </script>

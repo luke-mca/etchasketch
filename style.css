@@ -1,26 +1,32 @@
-.grid {
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px;
 }
 
-.row1,
-.row2,
-.row3,
-.row4 {
+button{
+    padding: 20px;
+    margin: 20px;
+}
+.grid {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    height: 500px;
+    width: 500px;
+    border: solid;
+}
+
+.rows {
     display: flex;
     flex-direction: row;
+    flex:auto
 }
 
-.row01, 
-.row02,
-.row03,
-.row04 {
-    background-color:rgb(235, 235, 235);
+.cols {
+    background-color:rgb(236, 236, 236);
     border: solid;
     border-width: 2px;
-    border-color: gray;
+    border-color: rgb(139, 139, 139);
     flex: auto;
-    padding: 30px;
 }
